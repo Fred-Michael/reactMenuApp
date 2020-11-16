@@ -14,9 +14,10 @@ function App() {
 
   useEffect(() => {
     fetchRecipe()
+    // eslint-disable-next-line
   }, [query]);
 
-  async function fetchRecipe() {
+  const fetchRecipe = async () => {
     const sampleReq = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
     const response = await fetch(sampleReq);
     const result = await response.json();
@@ -27,7 +28,7 @@ function App() {
     setSearch(e.target.value)
   }
 
-  function getSearch(event) {
+  const getSearch = (event) => {
     event.preventDefault();
     setQuery(search);
     setSearch("")
